@@ -4,8 +4,8 @@ pyo3-build-config = "0.27"
 
 [dependencies]
 cxx = "1.0"
-numpy = {version = "0.27", optional = true}
-pyo3 = {version = "0.27", features = ["auto-initialize"]}
+numpy = {version = "*", optional = true}
+pyo3 = {version = "*", features = ["auto-initialize"], path = "../pyo3"}
 
 [features]
 default = ["numpy"]
@@ -20,3 +20,10 @@ name = "_rms_norm"
 edition = "2021"
 name = "rms-norm"
 version = "0.1.0"
+
+[patch.crates-io]
+pyo3 = { path = "../pyo3" }
+pyo3-ffi = { path = "../pyo3/pyo3-ffi" }
+pyo3-build-config = { path = "../pyo3/pyo3-build-config" }
+pyo3-macros = { path = "../pyo3/pyo3-macros" }
+pyo3-macros-backend = { path = "../pyo3/pyo3-macros-backend" }
